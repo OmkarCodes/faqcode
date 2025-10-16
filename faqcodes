@@ -20,3 +20,38 @@ loadbtns.forEach((btn) => {
     }
   });
 });
+
+
+
+
+// const scrollingbtn = document.querySelector(".btnarrow");
+
+// scrollingbtn.addEventListener("click", (event) => {
+//   //   event.preventDefault();
+//   scrollingparent = document.querySelector(".scrolling");
+//   if (scrollingparent) {
+//     scrollingparent.scrollBy({
+//       top: 100, // or left: 2 for horizontal10
+//       behavior: "smooth",
+//     });
+//   }
+// });
+
+const scrollingbtn = document.querySelector(".btnarrow");
+const scrollingparent = document.querySelector(".scrolling");
+
+scrollingbtn.addEventListener("click", () => {
+  //   if (!scrollingparent) return;
+
+  const scrollAmount = 100;
+  const maxScroll = scrollingparent.scrollHeight - scrollingparent.clientHeight;
+
+  if (scrollingparent.scrollTop + scrollAmount >= maxScroll) {
+    // Scroll back up to the top
+    scrollingparent.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    // Scroll down
+    scrollingparent.scrollBy({ top: scrollAmount, behavior: "smooth" });
+  }
+});
+
