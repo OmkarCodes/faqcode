@@ -1,0 +1,22 @@
+const loadbtns = document.querySelectorAll(".load");
+
+loadbtns.forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    // Select all .hide sections
+    const hiddenSections = document.querySelectorAll(".hide");
+
+    hiddenSections.forEach((section) => {
+      // Toggle visibility
+      section.classList.toggle("hidden");
+    });
+
+    // (optional) change button text for feedback
+    if (btn.textContent.includes("Read More")) {
+      btn.textContent = "Hide Success Stories";
+    } else {
+      btn.textContent = "Read More Success Stories";
+    }
+  });
+});
