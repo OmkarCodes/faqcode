@@ -55,3 +55,27 @@ scrollingbtn.addEventListener("click", () => {
   }
 });
 
+// scrolling 
+
+const parentcontaner = document.querySelector(".scrollingbtn");
+const scrollingchild = document.querySelector(".scrollingcontaner");
+
+parentcontaner.addEventListener("click", () => {
+  let initalscroll = scrollingchild.scrollTop;
+  let totalscrollheight =
+    scrollingchild.scrollHeight - scrollingchild.clientHeight;
+
+  if (initalscroll < totalscrollheight) {
+    scrollingchild.scrollBy({
+      top: 100,
+      behavior: "smooth",
+    });
+  } else {
+    scrollingchild.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+});
+
+
